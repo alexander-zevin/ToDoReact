@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import s from './ToDo.module.css';
 import {ToDoInput} from "./ToDoInput/ToDoInput";
 import {useDispatch, useSelector} from "react-redux";
 import {Task} from "./Task/Task";
-import {addTaskActionCreator, setInputTextActionCreator} from "../../store/toDoReducer";
+import {addTaskActionCreator, setInputTextActionCreator} from "../../store/toDoActions";
 
 export const ToDo = () => {
     const tasks = useSelector(state => state.toDo.tasks);

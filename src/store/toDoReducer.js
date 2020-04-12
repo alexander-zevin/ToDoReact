@@ -1,5 +1,4 @@
-const ADD_TASK = 'ADD_TASK';
-const SET_INPUT_TEXT = 'SET_INPUT_TEXT';
+import {ADD_TASK, SET_INPUT_TEXT} from "./toDoConstants";
 
 const initialState = {
     tasks: [],
@@ -21,6 +20,3 @@ export const toDoReducer = (state = initialState, action) => {
         default: return state;
     }
 };
-
-export const addTaskActionCreator = (id, text) => ({type: ADD_TASK, id, text});
-export const setInputTextActionCreator = newText => ({type: SET_INPUT_TEXT, newText});

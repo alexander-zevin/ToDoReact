@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { ToDo } from "./components/todo/ToDo.jsx";
+import {ToDo} from "./ToDo/ToDo";
 
 const App = () => (
     <div id='app'>
