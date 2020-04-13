@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import {ToDo} from "./ToDo/ToDo";
+import {ToDoContainer} from "./ToDo/ToDoContainer";
 
 const App = () => (
     <div id='app'>
-        <ToDo />
+        <ToDoContainer />
     </div>
 );
 

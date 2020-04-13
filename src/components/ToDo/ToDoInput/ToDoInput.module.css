@@ -1,0 +1,24 @@
+.addInput, .btn {
+    outline: none;
+    border: 2px solid rgba(0, 204, 111, 0.3);
+    padding: 6px;
+    font-size: 16pt;
+    font-family: "Roboto Light";
+}
+
+.addInput {
+    border-radius: 5px 0 0 5px;
+}
+
+.btn {
+    position: relative;
+    right: 2px;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    background-color: rgba(0, 204, 111, 0.11);
+}
+
+.inputBlock {
+    /*margin-bottom: 10px;*/
+}

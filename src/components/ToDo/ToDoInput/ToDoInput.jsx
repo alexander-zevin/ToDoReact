@@ -2,14 +2,15 @@ import React from 'react';
 import styles from './ToDoInput.module.css';
 
 export const ToDoInput = ({inputValue, setInputText, addTask}) => (
-    <div>
+    <div className={styles.inputBlock}>
         <input
+            className={styles.addInput}
             type='text'
-            size='40'
+            size='30'
             name='entryField'
             value={inputValue}
             onChange={e => setInputText(e.target.value)}
         />
-        <button onClick={ () => {addTask(inputValue)} }>Add</button>
+        <button className={styles.btn} onClick={ () => {addTask(inputValue)} }>Add</button>
     </div>
 );

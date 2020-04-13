@@ -1,0 +1,26 @@
+.tasks {
+    padding: 6px;
+    margin: 8px 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 16pt;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    background-color: rgb(250,250,250);
+}
+
+.btn {
+    border: none;
+    background-color: rgb(250,250,250);
+    cursor: pointer;
+    outline: none;
+}
+
+.editModeInput {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 6px;
+    font-size: 16pt;
+    border-radius: 5px;
+    font-family: "Roboto Light";
+}

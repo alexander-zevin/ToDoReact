@@ -1,5 +1,4 @@
-html, body, #root, #app {
-    height: 100%;
+body {
     margin: 0;
-    background-color: rgb(204, 204, 204);
+    font-size: 16pt;
 }
