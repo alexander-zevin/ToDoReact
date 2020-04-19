@@ -1,4 +1,0 @@
-export const ADD_TASK = 'ADD_TASK';
-export const SET_INPUT_TEXT = 'SET_INPUT_TEXT';
-export const DELETE_TASK = 'DELETE_TASK';
-export const UPDATE_TEXT_TEXT_EDIT_MODE = 'UPDATE_TEXT_TEXT_EDIT_MODE';
