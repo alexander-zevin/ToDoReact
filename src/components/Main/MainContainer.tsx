@@ -18,12 +18,13 @@ export const MainContainer = () => {
     const {tasks, inputValue} = useSelector((state: RootStateType) => state.toDo, shallowEqual);
 
     useEffect(() => {
-        setToLocalStorage(tasks);
-    }, [tasks]);
+        const tasksLocalStorage = getFromLocalStorage();
+        if (tasksLocalStorage !== null) dispatch(setTasksActionCreator(tasksLocalStorage));
+    }, [dispatch]);
 
     useEffect(() => {
-        dispatch(setTasksActionCreator(getFromLocalStorage()));
-    }, [dispatch]);
+        setToLocalStorage(tasks);
+    }, [tasks]);
     
     const setInputText = (newText: string) => {
         dispatch(setInputTextActionCreator(newText));
