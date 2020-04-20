@@ -1,0 +1,13 @@
+.rootBox {
+    width: 5in;
+    padding: 32px;
+    display: flex;
+
+    .textFieldBox {
+        flex-grow: 1
+    }
+
+    .btn {
+        height: 100%
+    }
+}
