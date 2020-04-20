@@ -16,10 +16,10 @@ export const theme = createMuiTheme({
     },
     typography: {
         body1: {
-            fontSize: 14,
-            '@media (min-width:600px)': {
+            fontSize: 18,
+            /*'@media (min-width:600px)': {
                 fontSize: 18,
-            }
+            }*/
         }
     },
     props: { //Плотность Button
