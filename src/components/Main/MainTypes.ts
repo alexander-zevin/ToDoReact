@@ -16,6 +16,10 @@ export interface ISaveTask {
     (id: number, text: string): void
 }
 
+export interface IHandleSnackbarClick {
+    (open: boolean): void
+}
+
 export interface MainPropsType {
     setInputText: ISetInputText,
     inputValue: string,
@@ -24,5 +28,7 @@ export interface MainPropsType {
     deleteTasks: IDeleteTasks,
     setPerformed: ISetPerformed,
     saveTask: ISaveTask
+    openMessage: boolean
+    handleSnackbarClick: IHandleSnackbarClick
 }
 

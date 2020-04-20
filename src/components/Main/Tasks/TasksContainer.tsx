@@ -3,7 +3,7 @@ import {useState} from "react";
 import {Tasks} from "./Tasks";
 import {IHandleIconButtonClick, IHandleListItemClick, ITasksContainerProps} from "./TasksTypes";
 
-export const TasksContainer: FC<ITasksContainerProps> = ({tasks, deleteTasks, setPerformed, saveTask}) => {
+export const TasksContainer: FC<ITasksContainerProps> = ({tasks, deleteTasks, setPerformed, saveTask, openMessage, handleSnackbarClick}) => {
 
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
     const handleListItemClick: IHandleListItemClick = index => {
@@ -19,7 +19,6 @@ export const TasksContainer: FC<ITasksContainerProps> = ({tasks, deleteTasks, se
         setEditModeIndex(null);
     },[tasks]);
 
-
     return <Tasks
         tasks={tasks}
         deleteTasks={deleteTasks}
@@ -29,5 +28,8 @@ export const TasksContainer: FC<ITasksContainerProps> = ({tasks, deleteTasks, se
         handleListItemClick={handleListItemClick}
         editModeIndex={editModeIndex}
         handleIconButtonClick={handleIconButtonClick}
+
+        openMessage={openMessage}
+        handleSnackbarClick={handleSnackbarClick}
     />
 };

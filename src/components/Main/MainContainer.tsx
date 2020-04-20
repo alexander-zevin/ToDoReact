@@ -6,10 +6,12 @@ import {
     deleteTaskActionCreator,
     saveTaskActionCreator,
     setInputTextActionCreator,
-    setPerformedActionCreator, setTasksActionCreator
+    setPerformedActionCreator,
+    setTasksActionCreator
 } from "../../store/actions";
 import {RootStateType} from "../../store/store";
 import {getFromLocalStorage, setToLocalStorage} from "../../api/localStorageAPI";
+import {IHandleSnackbarClick} from "./MainTypes";
 
 export const MainContainer = () => {
 
@@ -52,8 +54,14 @@ export const MainContainer = () => {
         dispatch(setPerformedActionCreator(id))
     };
 
+    const [openMessage, setMessage] = React.useState(false);
+    const handleSnackbarClick: IHandleSnackbarClick = open => {
+        setMessage(open)
+    };
+
     const saveTask = (id: number, text: string) => {
-        dispatch(saveTaskActionCreator(id, text))
+        dispatch(saveTaskActionCreator(id, text));
+        handleSnackbarClick(true);
     };
 
     return <Main
@@ -64,5 +72,7 @@ export const MainContainer = () => {
         deleteTasks={deleteTasks}
         setPerformed={setPerformed}
         saveTask={saveTask}
+        openMessage={openMessage}
+        handleSnackbarClick={handleSnackbarClick}
     />
 };

@@ -4,9 +4,10 @@ import {Box} from "@material-ui/core";
 import List from "@material-ui/core/List";
 import {Task} from "./Task/Task";
 import {ITasksProps} from "./TasksTypes";
+import {Message} from "./Message/Message";
 
 export const Tasks: FC<ITasksProps> = ({tasks, deleteTasks, setPerformed, saveTask, selectedIndex,
-                                           handleListItemClick, editModeIndex, handleIconButtonClick}) => {
+                                           handleListItemClick, editModeIndex, handleIconButtonClick, openMessage, handleSnackbarClick}) => {
 
     return (
         <Box className={styles.listBox}>
@@ -25,7 +26,7 @@ export const Tasks: FC<ITasksProps> = ({tasks, deleteTasks, setPerformed, saveTa
                     />
                 )}
             </List>
-            {/*<img src={process.env.PUBLIC_URL + '/images/list.png'} alt='image'/>*/}
+            <Message openMessage={openMessage} handleSnackbarClick={handleSnackbarClick}/>
         </Box>
     );
 };

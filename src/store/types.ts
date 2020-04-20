@@ -1,9 +1,9 @@
 export interface ITask {
-    id: number,
-    text: string,
+    id: number
+    text: string
     isPerformed: boolean
 }
 export interface IState {
-    tasks: ITask[],
+    tasks: ITask[]
     inputValue: string
 }

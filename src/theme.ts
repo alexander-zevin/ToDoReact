@@ -10,6 +10,9 @@ export const theme = createMuiTheme({
         secondary: {
             main: green.A700,
         },
+        success: {
+            main: indigo["400"]
+        }
     },
     typography: {
         body1: {

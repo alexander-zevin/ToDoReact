@@ -6,7 +6,7 @@ import styles from './Main.module.scss';
 import {MainPropsType} from "./MainTypes";
 
 export const Main: React.FC<MainPropsType> = (
-    {setInputText, inputValue, addTask, tasks, deleteTasks, setPerformed, saveTask}) => {
+    {setInputText, inputValue, addTask, tasks, deleteTasks, setPerformed, saveTask, openMessage, handleSnackbarClick}) => {
 
     return (
         <Paper className={styles.paper} elevation={3}>
@@ -16,6 +16,8 @@ export const Main: React.FC<MainPropsType> = (
                 deleteTasks={deleteTasks}
                 setPerformed={setPerformed}
                 saveTask={saveTask}
+                openMessage={openMessage}
+                handleSnackbarClick={handleSnackbarClick}
             />
         </Paper>
     )
