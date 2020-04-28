@@ -1,7 +1,8 @@
-.app {
-    background-color: #e8eaf6; /*indigo.50*/
+.App {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    background-color: #e8eaf6;
 }
+

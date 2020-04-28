@@ -5,5 +5,4 @@ export interface ITask {
 }
 export interface IState {
     tasks: ITask[]
-    inputValue: string
 }

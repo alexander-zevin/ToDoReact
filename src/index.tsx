@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
+import './index.css';
 import App from './App';
-import CssBaseline from "@material-ui/core/CssBaseline";
-import 'typeface-roboto';
+import * as serviceWorker from './serviceWorker';
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from "./theme";
+import {Provider as StoreProvider} from "react-redux";
+import {store} from "./store/store";
 
 ReactDOM.render(
     <React.StrictMode>
-        <CssBaseline />
-        <App/>
+        <StoreProvider store={store}>
+            <ThemeProvider theme={theme}>
+                <App/>
+            </ThemeProvider>
+        </StoreProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );
+
+serviceWorker.unregister();

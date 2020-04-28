@@ -1,30 +1,30 @@
 import React, {FC} from 'react';
-import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import styles from './Add.module.scss'
-import {IAddPropsType} from "./AddTypes";
+import {TextField, Button, Box} from "@material-ui/core";
+import {IAddProps} from "./AddTypes";
+import styles from './Add.module.css'
 
-export const Add: FC<IAddPropsType> = ({setInputText, inputValue, addTask}) => {
+const Add: FC<IAddProps> = ({textFieldValue, textFieldChange, addTask}) => {
+
     return (
-        <Box className={styles.rootBox}>
-            <Box className={styles.textFieldBox} mr={2}>
-                <TextField
-                    label="Enter task text"
-                    fullWidth
-                    value={inputValue}
-                    onChange={e => setInputText(e.target.value)}
-                />
-            </Box>
-            <Box>
+        <Box className={styles.Add}>
+            <TextField
+                label='Add task text'
+                fullWidth
+                size='small'
+                value={textFieldValue}
+                onChange={(e) => {textFieldChange(e.target.value)}}
+                variant="outlined"
+            />
+            <Box ml={2}>
                 <Button
                     className={styles.btn}
+                    onClick={() => {addTask(textFieldValue)}}
                     variant="contained"
-                    color="primary"
-                    onClick={() => { addTask(inputValue) }}
-                >Add
+                    color="primary">ADD
                 </Button>
             </Box>
         </Box>
-    )
+    );
 };
+
+export default Add;

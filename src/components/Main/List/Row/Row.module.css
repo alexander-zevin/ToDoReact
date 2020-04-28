@@ -1,0 +1,17 @@
+.Item {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 8px 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.Item:hover {
+    border-bottom: 1px solid transparent;
+    box-shadow: 0 2px 5px #757575;
+}
+
+.Divider {
+    width: 95%;
+}

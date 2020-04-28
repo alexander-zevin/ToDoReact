@@ -1,34 +1,20 @@
 import {ITask} from "../../store/types";
+import React, {Dispatch, SetStateAction} from "react";
 
-export interface ISetInputText {
-    (newText: string): void
+export interface IMessage {
+    open: boolean
+    message: null | string
 }
 
-export interface IAddTask extends ISetInputText {}
-
-export interface IDeleteTasks {
-    (id: number): void
+export interface IPaginatorChange {
+    (event: React.ChangeEvent<unknown>, value: number): void
 }
 
-export interface ISetPerformed extends IDeleteTasks {}
-
-export interface ISaveTask {
-    (id: number, text: string): void
+export interface IMainProps {
+    tasks: Array<ITask>
+    openMessage: IMessage
+    setOpenMessage: Dispatch<SetStateAction<IMessage>>
+    pageSize: number
+    pageNumber: number
+    paginatorChange: IPaginatorChange
 }
-
-export interface IHandleSnackbarClick {
-    (open: boolean): void
-}
-
-export interface MainPropsType {
-    setInputText: ISetInputText,
-    inputValue: string,
-    addTask: IAddTask,
-    tasks: Array<ITask>,
-    deleteTasks: IDeleteTasks,
-    setPerformed: ISetPerformed,
-    saveTask: ISaveTask
-    openMessage: boolean
-    handleSnackbarClick: IHandleSnackbarClick
-}
-

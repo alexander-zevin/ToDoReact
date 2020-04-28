@@ -1,0 +1,6 @@
+.Paper {
+    width: 700px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
