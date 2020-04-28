@@ -1,5 +1,4 @@
 import {ITask} from "../../../store/types";
-import React from 'react';
 
 export interface ITextFieldChange {
     (value: string): void

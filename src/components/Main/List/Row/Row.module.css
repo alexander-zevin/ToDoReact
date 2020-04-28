@@ -15,3 +15,8 @@
 .Divider {
     width: 95%;
 }
+
+.star, .text {
+    position: relative;
+    right: 12px;
+}

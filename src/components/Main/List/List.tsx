@@ -22,6 +22,7 @@ const List: FC<IListProps> = props => {
                         activeRowIndex={props.activeRowIndex}
                         setActiveRowIndex={props.setActiveRowIndex}
                         setOpenMessage={props.setOpenMessage}
+                        isTagged={item.isTagged}
                     />
                     :
                     <RowEditContainer

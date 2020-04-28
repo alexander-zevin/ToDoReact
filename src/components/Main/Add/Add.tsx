@@ -12,7 +12,7 @@ const Add: FC<IAddProps> = ({textFieldValue, textFieldChange, addTask}) => {
                 fullWidth
                 size='small'
                 value={textFieldValue}
-                onChange={(e) => {textFieldChange(e.target.value)}}
+                onChange={(event) => {textFieldChange(event.target.value)}}
                 variant="outlined"
                 onKeyUp={event=> {event.keyCode === 13 && addTask(textFieldValue)}}
             />

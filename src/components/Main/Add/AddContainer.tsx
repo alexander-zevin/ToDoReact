@@ -14,7 +14,7 @@ const AddContainer: FC<IAddContainerProps> = ({tasks}) => {
         setTextFieldValue(value)
     };
 
-    const addTask: IAddTasks = (text) => {
+    const addTask: IAddTasks = text => {
         if (text !== '') {
             let k, newId;
             do {

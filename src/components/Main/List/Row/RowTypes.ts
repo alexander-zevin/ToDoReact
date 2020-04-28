@@ -1,15 +1,15 @@
 import {Dispatch, SetStateAction} from "react";
 import {IMessage} from "../../MainTypes";
 
-export interface IRowMouseMove {
-    (isActive: boolean): void
-}
-
 export interface ISetPerformed {
     (id: number): void
 }
 
 export interface IDeleteTasks{
+    (id: number): void
+}
+
+export interface ISetTag {
     (id: number): void
 }
 
@@ -22,9 +22,11 @@ export interface IRowContainerProps {
     activeRowIndex: number | null
     setActiveRowIndex: Dispatch<SetStateAction<number | null>>
     setOpenMessage: Dispatch<SetStateAction<IMessage>>
+    isTagged: boolean
 }
 
 export interface IRowProps extends IRowContainerProps{
     setPerformed: ISetPerformed
     deleteTasks: IDeleteTasks
+    setTag: ISetTag
 }
