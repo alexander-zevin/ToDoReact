@@ -14,6 +14,7 @@ const Add: FC<IAddProps> = ({textFieldValue, textFieldChange, addTask}) => {
                 value={textFieldValue}
                 onChange={(e) => {textFieldChange(e.target.value)}}
                 variant="outlined"
+                onKeyUp={event=> {event.keyCode === 13 && addTask(textFieldValue)}}
             />
             <Box ml={2}>
                 <Button
