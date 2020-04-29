@@ -9,7 +9,7 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 const Row: FC<IRowProps> = props => {
     return (
-        <Box
+        <div
             className={styles.Item}
             onMouseMove={() => {props.setActiveRowIndex(props.id)}}
             onMouseLeave={() => {props.setActiveRowIndex(null)}}
@@ -36,7 +36,7 @@ const Row: FC<IRowProps> = props => {
             >
                 {props.text}
             </Box>
-            {props.activeRowIndex === props.id &&
+            {props.activeRowIndex === props.id ?
                 <>
                     <Tooltip title="Edit" placement="top">
                         <IconButton onClick={() => {props.setEditModeIndex(props.id)}}>
@@ -50,8 +50,10 @@ const Row: FC<IRowProps> = props => {
                         </IconButton>
                     </Tooltip>
                 </>
+                :
+                <Box mx={1}>{props.date}</Box>
             }
-        </Box>
+        </div>
     );
 };
 

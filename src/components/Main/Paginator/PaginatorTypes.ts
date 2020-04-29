@@ -1,5 +1,4 @@
 import {ITask} from "../../../store/types";
-import React from "react";
 import {IPaginatorChange} from "../MainTypes";
 
 export interface IPaginatorProps {

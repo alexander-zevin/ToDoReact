@@ -3,6 +3,7 @@ export interface ITask {
     text: string
     isPerformed: boolean
     isTagged: boolean
+    date: string
 }
 export interface IState {
     tasks: ITask[]

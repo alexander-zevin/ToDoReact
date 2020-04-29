@@ -13,7 +13,8 @@ const RowEdit: FC<IRowEditProps> = props => {
                     placeholder='Change the task text'
                     autoFocus
                     value={props.inputValue}
-                    onChange={(e) => {props.setInputValue(e.target.value)}}
+                    onChange={e => {props.setInputValue(e.target.value)}}
+                    onKeyUp={event => {event.keyCode === 13 && props.saveTask(props.id, props.inputValue)}}
                     fullWidth
                 />
             </Box>

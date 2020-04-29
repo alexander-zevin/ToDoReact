@@ -14,8 +14,14 @@ const AddContainer: FC<IAddContainerProps> = ({tasks}) => {
         setTextFieldValue(value)
     };
 
+    const months = ["Jan.","Feb.","Mar.","Apr.","May","June","July","Aug.","Sept.","Oct.","Nov.","Dec."];
+
     const addTask: IAddTasks = text => {
         if (text !== '') {
+
+            const newDate = new Date();
+            const date = `${newDate.getDay()} ${months[newDate.getMonth()]}`;
+
             let k, newId;
             do {
                 k = 0;
@@ -24,7 +30,7 @@ const AddContainer: FC<IAddContainerProps> = ({tasks}) => {
                     if (tasks[i].id === newId) k++
                 }
             } while (k !== 0);
-            dispatch(addTaskActionCreator(newId, text));
+            dispatch(addTaskActionCreator(newId, text, date));
             textFieldChange('');
         }
     };

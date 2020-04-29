@@ -11,7 +11,7 @@ export const reducer = (state = initialState, action: ActionType): IState => {
         case ADD_TASK: {
             return {
                 ...state,
-                tasks: [...state.tasks, {id: action.id, text: action.text, isPerformed: false, isTagged: false}]
+                tasks: [...state.tasks, {id: action.id, text: action.text, isPerformed: false, isTagged: false, date: action.date}]
             }
         }
         case DELETE_TASK: {

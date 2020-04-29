@@ -1,4 +1,4 @@
-import {Dispatch, SetStateAction} from "react";
+import React, {Dispatch, RefObject, SetStateAction} from "react";
 import {IMessage} from "../../MainTypes";
 
 export interface ISetPerformed {
@@ -23,6 +23,7 @@ export interface IRowContainerProps {
     setActiveRowIndex: Dispatch<SetStateAction<number | null>>
     setOpenMessage: Dispatch<SetStateAction<IMessage>>
     isTagged: boolean
+    date: string
 }
 
 export interface IRowProps extends IRowContainerProps{
