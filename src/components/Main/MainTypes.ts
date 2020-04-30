@@ -1,4 +1,4 @@
-import {ITask} from "../../store/types";
+import {IState, ITask} from "../../store/types";
 import React, {Dispatch, SetStateAction} from "react";
 
 export interface IMessage {
@@ -11,10 +11,12 @@ export interface IPaginatorChange {
 }
 
 export interface IMainProps {
-    tasks: Array<ITask>
+    // tasks: Array<ITask>
     openMessage: IMessage
     setOpenMessage: Dispatch<SetStateAction<IMessage>>
     pageSize: number
     pageNumber: number
     paginatorChange: IPaginatorChange
+    // sortBy: string
+    state: IState
 }

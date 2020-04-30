@@ -1,9 +1,9 @@
-import {ITask} from "../store/types";
+import {IState, ITask} from "../store/types";
 
-export const setToLocalStorage = (tasks: Array<ITask>) => {
-        localStorage.setItem('tasks', JSON.stringify(tasks));
+export const setToLocalStorage = (state: IState) => {
+        localStorage.setItem('tasks', JSON.stringify(state));
 };
 
-export const getFromLocalStorage = (): Array<ITask> => {
+export const getFromLocalStorage = (): IState => {
     return JSON.parse(localStorage.getItem('tasks') as string);
 };

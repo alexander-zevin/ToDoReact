@@ -4,22 +4,23 @@ import {shallowEqual, useDispatch, useSelector} from "react-redux";
 import {RootStateType} from "../../store/store";
 import Main from "./Main";
 import {getFromLocalStorage, setToLocalStorage} from "../../api/localStorageAPI";
-import {setTasksActionCreator} from "../../store/actions";
+import {setStateActionCreator} from "../../store/actions";
 
 const MainContainer = () => {
 
     const dispatch = useDispatch();
 
-    const {tasks} = useSelector((state: RootStateType) => state.toDo, shallowEqual);
+    // const {tasks, sortBy} = useSelector((state: RootStateType) => state.toDo, shallowEqual);
+    const state = useSelector((state: RootStateType) => state.toDo, shallowEqual);
 
     useEffect(() => {
-        const tasksLocalStorage = getFromLocalStorage();
-        if (tasksLocalStorage !== null) dispatch(setTasksActionCreator(tasksLocalStorage));
+        const stateLocalStorage = getFromLocalStorage();
+        if (stateLocalStorage !== null) dispatch(setStateActionCreator(stateLocalStorage));
     }, [dispatch]);
 
     useEffect(() => {
-        setToLocalStorage(tasks);
-    }, [tasks]);
+        setToLocalStorage(state);
+    }, [state]);
 
     const [openMessage, setOpenMessage] = useState<IMessage>({open: false, message: null});
 
@@ -31,12 +32,14 @@ const MainContainer = () => {
 
     return (
         <Main
-            tasks={tasks}
+            // tasks={tasks}
             openMessage={openMessage}
             setOpenMessage={setOpenMessage}
             pageSize={pageSize}
             pageNumber={pageNumber}
             paginatorChange={paginatorChange}
+            // sortBy={sortBy}
+            state={state}
         />
     );
 };

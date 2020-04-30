@@ -23,7 +23,8 @@ const List: FC<IListProps> = props => {
                         setActiveRowIndex={props.setActiveRowIndex}
                         setOpenMessage={props.setOpenMessage}
                         isTagged={item.isTagged}
-                        date={item.date}
+                        date={props.convertDate(item.date)}
+                        key={item.id}
                     />
                     :
                     <RowEditContainer
@@ -31,6 +32,7 @@ const List: FC<IListProps> = props => {
                         text={item.text}
                         setEditModeIndex={props.setEditModeIndex}
                         setOpenMessage={props.setOpenMessage}
+                        key={item.id}
                     />
             )}
         </Box>

@@ -2,11 +2,16 @@ import {ITask} from "../../../store/types";
 import {Dispatch, SetStateAction} from "react";
 import {IMessage} from "../MainTypes";
 
+export interface IConvertDate {
+    (date: string): string
+}
+
 export interface IListContainerProps {
     setOpenMessage: Dispatch<SetStateAction<IMessage>>
     tasks: Array<ITask>
     pageNumber: number
     pageSize: number
+    sortBy: string
 }
 
 export interface IListProps extends IListContainerProps {
@@ -17,4 +22,5 @@ export interface IListProps extends IListContainerProps {
     setActiveRowIndex: Dispatch<SetStateAction<number | null>>
     leftPortionPageNumber: number
     rightPortionPageNumber: number
+    convertDate: IConvertDate
 }

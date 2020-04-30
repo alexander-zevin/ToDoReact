@@ -1,9 +1,10 @@
-import {ADD_TASK, DELETE_TASK, SAVE_TASK, SET_PERFORMED, SET_TAG, SET_TASKS} from "./constants";
+import {ADD_TASK, DELETE_TASK, SAVE_TASK, SET_PERFORMED, SET_SORT, SET_TAG, SET_STATE} from "./constants";
 import {IState} from './types'
 import {ActionType} from "./actions";
 
 const initialState: IState = {
-    tasks: []
+    tasks: [],
+    sortBy: 'added'
 };
 
 export const reducer = (state = initialState, action: ActionType): IState => {
@@ -42,10 +43,8 @@ export const reducer = (state = initialState, action: ActionType): IState => {
                 )
             }
         }
-        case SET_TASKS: {
-            return {
-                ...state, tasks: action.tasks
-            }
+        case SET_STATE: {
+            return action.state
         }
         case SET_TAG: {
             return {
@@ -54,6 +53,11 @@ export const reducer = (state = initialState, action: ActionType): IState => {
                         ? {...i, isTagged: !i.isTagged}
                         : {...i}
                 )
+            }
+        }
+        case SET_SORT: {
+            return {
+                ...state, sortBy: action.option
             }
         }
         default: return state;

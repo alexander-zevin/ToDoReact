@@ -1,5 +1,5 @@
-import {ADD_TASK, DELETE_TASK, SAVE_TASK, SET_PERFORMED, SET_TAG, SET_TASKS} from "./constants";
-import {ITask} from "./types";
+import {ADD_TASK, DELETE_TASK, SAVE_TASK, SET_PERFORMED, SET_SORT, SET_STATE, SET_TAG} from "./constants";
+import {IState} from "./types";
 
 interface IAddTaskAction { type: typeof ADD_TASK, id: number, text: string, date: string}
 export const addTaskActionCreator = (id: number, text: string, date: string): IAddTaskAction => ({type: ADD_TASK, id, text, date});
@@ -13,12 +13,15 @@ export const setPerformedActionCreator = (id: number): ISetPerformedAction => ({
 interface ISaveTaskAction {type: typeof SAVE_TASK, id: number, text: string}
 export const saveTaskActionCreator = (id: number, text: string): ISaveTaskAction => ({type: SAVE_TASK, id, text});
 
-interface ISetTasksAction {type: typeof SET_TASKS, tasks: Array<ITask>}
-export const setTasksActionCreator = (tasks: Array<ITask>): ISetTasksAction => ({type: SET_TASKS, tasks});
+interface ISetStateAction {type: typeof SET_STATE, state: IState}
+export const setStateActionCreator = (state: IState): ISetStateAction => ({type: SET_STATE, state});
 
 interface ISetTagAction {type: typeof SET_TAG, id: number}
 export const setTagActionCreator = (id: number): ISetTagAction => ({type: SET_TAG, id});
 
-export type ActionType = IAddTaskAction | IDeleteTaskAction | ISetPerformedAction | ISaveTaskAction | ISetTasksAction
-    | ISetTagAction;
+interface ISetSortAction {type: typeof SET_SORT, option: string}
+export const setSortActionCreator = (option: string): ISetSortAction => ({type: SET_SORT, option});
+
+export type ActionType = IAddTaskAction | IDeleteTaskAction | ISetPerformedAction | ISaveTaskAction | ISetStateAction
+    | ISetTagAction | ISetSortAction;
 
