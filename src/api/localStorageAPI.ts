@@ -1,4 +1,4 @@
-import {IState, ITask} from "../store/types";
+import {IState} from "../store/types";
 
 export const setToLocalStorage = (state: IState) => {
         localStorage.setItem('tasks', JSON.stringify(state));
