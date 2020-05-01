@@ -10,7 +10,6 @@ const MainContainer = () => {
 
     const dispatch = useDispatch();
 
-    // const {tasks, sortBy} = useSelector((state: RootStateType) => state.toDo, shallowEqual);
     const state = useSelector((state: RootStateType) => state.toDo, shallowEqual);
 
     useEffect(() => {
@@ -32,13 +31,11 @@ const MainContainer = () => {
 
     return (
         <Main
-            // tasks={tasks}
             openMessage={openMessage}
             setOpenMessage={setOpenMessage}
             pageSize={pageSize}
             pageNumber={pageNumber}
             paginatorChange={paginatorChange}
-            // sortBy={sortBy}
             state={state}
         />
     );

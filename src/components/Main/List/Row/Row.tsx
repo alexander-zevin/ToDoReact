@@ -6,6 +6,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import {IRowProps} from "./RowTypes";
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import ViewContent from "./ViewContent/ViewContent";
 
 const Row: FC<IRowProps> = props => {
     return (
@@ -13,7 +14,6 @@ const Row: FC<IRowProps> = props => {
             className={styles.Item}
             onMouseMove={() => {props.setActiveRowIndex(props.id)}}
             onMouseLeave={() => {props.setActiveRowIndex(null)}}
-            title={props.text}
         >
             <Tooltip title={props.isPerformed ? 'Performed' : 'Not performed'} placement="top">
                 <Checkbox color='primary' checked={props.isPerformed} onChange={() => {props.setPerformed(props.id)}}/>
@@ -44,6 +44,8 @@ const Row: FC<IRowProps> = props => {
                         </IconButton>
                     </Tooltip>
                     <Divider orientation="vertical" flexItem/>
+                    <ViewContent text={props.text}/>
+                    <Divider orientation="vertical" flexItem/>
                     <Tooltip title="Delete" placement="top">
                         <IconButton onClick={() => {props.deleteTasks(props.id)}}>
                             <DeleteIcon/>
@@ -51,7 +53,7 @@ const Row: FC<IRowProps> = props => {
                     </Tooltip>
                 </>
                 :
-                <Box mx={1}>{props.date}</Box>
+                <Box className={styles.date} mx={1}>{props.date}</Box>
             }
         </div>
     );
