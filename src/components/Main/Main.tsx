@@ -12,13 +12,13 @@ const Main: FC<IMainProps> = props => {
     return (
         <Paper className={styles.Paper} elevation={3}>
             <AddContainer tasks={props.state.tasks}/>
-            <Control sortBy={props.state.sortBy}/>
+            <Control filter={props.state.filter}/>
             <ListContainer
                 setOpenMessage={props.setOpenMessage}
                 tasks={props.state.tasks}
                 pageNumber={props.pageNumber}
                 pageSize={props.pageSize}
-                sortBy={props.state.sortBy}
+                sortBy={props.state.filter}
             />
             <Message
                 openMessage={props.openMessage}

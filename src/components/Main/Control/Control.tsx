@@ -7,15 +7,16 @@ import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import Typography from "@material-ui/core/Typography";
 import {useDispatch} from "react-redux";
-import {setSortActionCreator} from "../../../store/actions";
+import {setFilterActionCreator} from "../../../store/actions";
 import {IControlProps} from "./ControlTypes";
+import FilterListIcon from '@material-ui/icons/FilterList';
 
 const Control: FC<IControlProps> = props => {
 
     const dispatch = useDispatch();
 
     const options = [
-        'added',
+        'all',
         'not performed',
         'tags',
     ];
@@ -31,7 +32,7 @@ const Control: FC<IControlProps> = props => {
     const handleMenuItemClick = (event: React.MouseEvent<HTMLElement>, index: number) => {
         setSelectedIndex(index);
         setAnchorEl(null);
-        dispatch(setSortActionCreator(options[index]));
+        dispatch(setFilterActionCreator(options[index]));
 
     };
 
@@ -44,7 +45,7 @@ const Control: FC<IControlProps> = props => {
             <Box className={styles.sortBy}>
                 <Button onClick={handleClick} startIcon={<SortIcon/>}>
                     <Typography variant="body2">
-                        Sort by: {props.sortBy}
+                        Filter by: {props.filter}
                     </Typography>
                 </Button>
                 <Menu

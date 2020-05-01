@@ -10,6 +10,7 @@ export interface IRowEditContainerProps {
     text: string
     setEditModeIndex: Dispatch<SetStateAction<number | null>>
     setOpenMessage: Dispatch<SetStateAction<IMessage>>
+    setActiveRowIndex: Dispatch<SetStateAction<number | null>>
 }
 
 export interface IRowEditProps extends IRowEditContainerProps{

@@ -1,4 +1,4 @@
-import {ADD_TASK, DELETE_TASK, SAVE_TASK, SET_PERFORMED, SET_SORT, SET_STATE, SET_TAG} from "./constants";
+import {ADD_TASK, DELETE_TASK, SAVE_TASK, SET_FILTER, SET_PERFORMED, SET_STATE, SET_TAG} from "./constants";
 import {IState} from "./types";
 
 interface IAddTaskAction { type: typeof ADD_TASK, id: number, text: string, date: string}
@@ -19,9 +19,9 @@ export const setStateActionCreator = (state: IState): ISetStateAction => ({type:
 interface ISetTagAction {type: typeof SET_TAG, id: number}
 export const setTagActionCreator = (id: number): ISetTagAction => ({type: SET_TAG, id});
 
-interface ISetSortAction {type: typeof SET_SORT, option: string}
-export const setSortActionCreator = (option: string): ISetSortAction => ({type: SET_SORT, option});
+interface ISetFilterAction {type: typeof SET_FILTER, option: string}
+export const setFilterActionCreator = (option: string): ISetFilterAction => ({type: SET_FILTER, option});
 
 export type ActionType = IAddTaskAction | IDeleteTaskAction | ISetPerformedAction | ISaveTaskAction | ISetStateAction
-    | ISetTagAction | ISetSortAction;
+    | ISetTagAction | ISetFilterAction;
 

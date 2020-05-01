@@ -1,10 +1,10 @@
-import {ADD_TASK, DELETE_TASK, SAVE_TASK, SET_PERFORMED, SET_SORT, SET_TAG, SET_STATE} from "./constants";
+import {ADD_TASK, DELETE_TASK, SAVE_TASK, SET_FILTER, SET_PERFORMED, SET_STATE, SET_TAG} from "./constants";
 import {IState} from './types'
 import {ActionType} from "./actions";
 
 const initialState: IState = {
     tasks: [],
-    sortBy: 'added'
+    filter: 'all'
 };
 
 export const reducer = (state = initialState, action: ActionType): IState => {
@@ -55,9 +55,9 @@ export const reducer = (state = initialState, action: ActionType): IState => {
                 )
             }
         }
-        case SET_SORT: {
+        case SET_FILTER: {
             return {
-                ...state, sortBy: action.option
+                ...state, filter: action.option
             }
         }
         default: return state;

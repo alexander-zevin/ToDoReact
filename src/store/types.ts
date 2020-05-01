@@ -7,5 +7,5 @@ export interface ITask {
 }
 export interface IState {
     tasks: ITask[]
-    sortBy: string
+    filter: string
 }

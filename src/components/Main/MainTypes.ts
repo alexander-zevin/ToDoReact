@@ -1,4 +1,4 @@
-import {IState, ITask} from "../../store/types";
+import {IState} from "../../store/types";
 import React, {Dispatch, SetStateAction} from "react";
 
 export interface IMessage {

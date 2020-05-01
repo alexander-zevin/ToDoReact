@@ -44,7 +44,7 @@ const Row: FC<IRowProps> = props => {
                         </IconButton>
                     </Tooltip>
                     <Divider orientation="vertical" flexItem/>
-                    <ViewContent text={props.text}/>
+                    <ViewContent text={props.text} setActiveRowIndex={props.setActiveRowIndex}/>
                     <Divider orientation="vertical" flexItem/>
                     <Tooltip title="Delete" placement="top">
                         <IconButton onClick={() => {props.deleteTasks(props.id)}}>

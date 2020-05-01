@@ -1,3 +1,3 @@
 export interface IControlProps {
-    sortBy: string
+    filter: string
 }

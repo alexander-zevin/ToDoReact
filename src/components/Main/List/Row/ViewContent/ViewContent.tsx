@@ -30,6 +30,7 @@ const ViewContent: FC<IViewContentProps> = props => {
 
     const handleClose = () => {
         setOpen(false);
+        props.setActiveRowIndex(null);
     };
 
     return (

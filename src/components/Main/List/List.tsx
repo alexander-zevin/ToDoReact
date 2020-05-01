@@ -33,6 +33,7 @@ const List: FC<IListProps> = props => {
                         setEditModeIndex={props.setEditModeIndex}
                         setOpenMessage={props.setOpenMessage}
                         key={item.id}
+                        setActiveRowIndex={props.setActiveRowIndex}
                     />
             )}
         </Box>
