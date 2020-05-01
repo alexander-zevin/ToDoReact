@@ -16,26 +16,6 @@ const ListContainer: FC<IListContainerProps> = props => {
         return `${ new Date(date).getDate()} ${ months[new Date(date).getMonth()]}`
     };
 
-    /*if (props.sortBy === 'added') {
-        props.tasks.sort((a, b) => {
-                if (new Date(a.date) > new Date(b.date)) return 1;
-                if (new Date(a.date) < new Date(b.date)) return -1;
-                return 0
-        })
-    } else if (props.sortBy === 'not performed') {
-        props.tasks.sort((a, b) => {
-                if (a.isPerformed > b.isPerformed) return 1;
-                if (a.isPerformed < b.isPerformed) return -1;
-                return 0
-        });
-    } else if (props.sortBy === 'tags') {
-        props.tasks.sort((a, b) => {
-                if (a.isTagged < b.isTagged) return 1;
-                if (a.isTagged > b.isTagged) return -1;
-                return 0
-        })
-    }*/
-
     let filterTasks = [];
     switch (props.sortBy) {
         case 'not performed': filterTasks = props.tasks.filter(item => !item.isPerformed);
