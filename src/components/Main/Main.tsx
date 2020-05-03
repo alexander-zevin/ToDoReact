@@ -1,24 +1,25 @@
 import React, {FC} from 'react';
-import styles from './Main.module.css';
 import Paper from '@material-ui/core/Paper';
 import AddContainer from "./Add/AddContainer";
 import ListContainer from "./List/ListContainer";
 import Message from "./Message/Message";
 import {IMainProps} from "./MainTypes";
 import Paginator from "./Paginator/Paginator";
-import Control from "./Control/Control";
+import useStyles from "./MainStyles";
+import ControlContainer from "./Control/ControlContainer";
 
 const Main: FC<IMainProps> = props => {
+    const classes = useStyles();
     return (
-        <Paper className={styles.Paper} elevation={3}>
+        <Paper className={classes.root} elevation={3}>
             <AddContainer tasks={props.state.tasks}/>
-            <Control filter={props.state.filter}/>
+            <ControlContainer filter={props.state.filter}/>
             <ListContainer
                 setOpenMessage={props.setOpenMessage}
                 tasks={props.state.tasks}
                 pageNumber={props.pageNumber}
                 pageSize={props.pageSize}
-                sortBy={props.state.filter}
+                filter={props.state.filter}
             />
             <Message
                 openMessage={props.openMessage}

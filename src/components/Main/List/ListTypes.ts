@@ -11,7 +11,7 @@ export interface IListContainerProps {
     tasks: Array<ITask>
     pageNumber: number
     pageSize: number
-    sortBy: string
+    filter: string
 }
 
 export interface IListProps extends IListContainerProps {

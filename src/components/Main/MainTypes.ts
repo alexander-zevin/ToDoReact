@@ -11,12 +11,10 @@ export interface IPaginatorChange {
 }
 
 export interface IMainProps {
-    // tasks: Array<ITask>
     openMessage: IMessage
     setOpenMessage: Dispatch<SetStateAction<IMessage>>
     pageSize: number
     pageNumber: number
     paginatorChange: IPaginatorChange
-    // sortBy: string
     state: IState
 }

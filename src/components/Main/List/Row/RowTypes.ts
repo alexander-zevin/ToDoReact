@@ -5,13 +5,9 @@ export interface ISetPerformed {
     (id: number): void
 }
 
-export interface IDeleteTasks{
-    (id: number): void
-}
+export interface IDeleteTasks extends ISetPerformed{}
 
-export interface ISetTag {
-    (id: number): void
-}
+export interface ISetTag extends ISetPerformed{}
 
 export interface IRowContainerProps {
     id: number

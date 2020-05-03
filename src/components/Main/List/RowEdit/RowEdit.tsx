@@ -1,13 +1,14 @@
 import React, {FC} from 'react';
-import styles from './RowEdit.module.css';
 import {Box, IconButton, Divider, Tooltip, InputBase} from "@material-ui/core";
 import SaveIcon from "@material-ui/icons/Save";
 import CancelIcon from "@material-ui/icons/Cancel";
 import {IRowEditProps} from "./RowEditTypes";
+import useStyles from "./RowEditStyles";
 
 const RowEdit: FC<IRowEditProps> = props => {
+    const classes = useStyles();
     return (
-        <Box className={styles.Item}>
+        <Box className={classes.root}>
             <Box flexGrow={1} pl={2}>
                 <InputBase
                     placeholder='Change the task text'

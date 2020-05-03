@@ -16,17 +16,16 @@ const AddContainer: FC<IAddContainerProps> = ({tasks}) => {
 
     const addTask: IAddTasks = text => {
         if (text !== '') {
-
-            const newDate = new Date().toISOString();
-
-            let k, newId;
+            const newDate: string = new Date().toISOString();
+            let matches: number;
+            let newId: number;
             do {
-                k = 0;
+                matches = 0;
                 newId = Math.floor(Math.random() * Math.floor(tasks.length + 1));
-                for (let i = 0; i < tasks.length; i++) {
-                    if (tasks[i].id === newId) k++
+                for (let i: number = 0; i < tasks.length; i++) {
+                    if (tasks[i].id === newId) matches++
                 }
-            } while (k !== 0);
+            } while (matches !== 0);
             dispatch(addTaskActionCreator(newId, text, newDate));
             textFieldChange('');
         }

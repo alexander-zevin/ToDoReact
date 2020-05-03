@@ -2,14 +2,16 @@ import React, {FC} from 'react';
 import {Pagination} from "@material-ui/lab";
 import {IPaginatorProps} from "./PaginatorTypes";
 import {Box} from "@material-ui/core";
-import styles from './Paginator.module.css';
+import useStyles from "./PaginatorStyles";
 
 const Paginator: FC<IPaginatorProps> = props => {
 
-    const pagesCount = Math.ceil(props.tasks.length / props.pageSize);
+    const classes = useStyles();
+
+    const pagesCount: number = Math.ceil(props.tasks.length / props.pageSize);
 
     return (
-        <Box className={styles.Paginator}>
+        <Box className={classes.root}>
             <Pagination count={pagesCount} onChange={props.paginatorChange} color="primary"/>
         </Box>
     );

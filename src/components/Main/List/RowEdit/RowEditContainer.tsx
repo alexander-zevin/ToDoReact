@@ -13,7 +13,7 @@ const RowEditContainer: FC<IRowEditContainerProps> = props => {
     const saveTask: ISaveTask = (id, text) => {
         dispatch(saveTaskActionCreator(id, text));
         props.setEditModeIndex(null);
-        props.setActiveRowIndex(null)
+        props.setActiveRowIndex(null);
         props.setOpenMessage({open: true, message: 'Saving was successful!'});
     };
 

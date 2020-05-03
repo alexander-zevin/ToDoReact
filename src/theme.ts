@@ -1,7 +1,7 @@
-import {createMuiTheme} from "@material-ui/core";
+import {createMuiTheme, Theme} from "@material-ui/core";
 import {indigo} from "@material-ui/core/colors";
 
-const theme = createMuiTheme({
+const theme: Theme = createMuiTheme({
     palette: {
         primary: {
             main: indigo[400]

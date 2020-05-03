@@ -9,20 +9,29 @@ import Paper, { PaperProps } from '@material-ui/core/Paper';
 import Draggable from 'react-draggable';
 import IconButton from '@material-ui/core/IconButton';
 import VisibilityIcon from '@material-ui/icons/Visibility';
-import {Tooltip} from "@material-ui/core";
+import {Theme, Tooltip} from "@material-ui/core";
 import {IViewContentProps} from "./ViewContentTypes";
 import styles from './ViewContent.module.css'
+import Slide from "@material-ui/core/Slide";
+import {TransitionProps} from "@material-ui/core/transitions";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 function PaperComponent(props: PaperProps) {
+
     return (
-        <Draggable handle="#draggable-dialog-title">
+        <Draggable
+            handle="#draggable-dialog-title"
+        >
             <Paper {...props} />
         </Draggable>
     );
 }
 
 const ViewContent: FC<IViewContentProps> = props => {
-    const [open, setOpen] = React.useState(false);
+
+    const fullScreen: boolean = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm')); // > 600px
+
+    const [open, setOpen] = React.useState<boolean>(false);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -32,6 +41,13 @@ const ViewContent: FC<IViewContentProps> = props => {
         setOpen(false);
         props.setActiveRowIndex(null);
     };
+
+    const Transition = React.forwardRef(function Transition(
+        props: TransitionProps & { children?: React.ReactElement<any, any> },
+        ref: React.Ref<unknown>,
+    ) {
+        return <Slide direction="up" ref={ref} {...props} />;
+    });
 
     return (
         <div >
@@ -44,6 +60,8 @@ const ViewContent: FC<IViewContentProps> = props => {
                 open={open}
                 onClose={handleClose}
                 PaperComponent={PaperComponent}
+                TransitionComponent={Transition}
+                fullScreen={fullScreen}
             >
                 <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
                     View content
