@@ -1,15 +1,14 @@
 import { makeStyles } from '@material-ui/core/styles';
+import {IStylesProps} from "./RowTypes";
 
-interface IStylesProps {
-    textDecoration: string
-}
+const spacing = '8px';
 
 const useStyles = makeStyles({
     root: {
         display: 'flex',
         alignItems: 'center',
         height: '50px',
-        padding: '8px 0',
+        padding: `${spacing} 0`,
         boxSizing: 'border-box',
         borderBottom: '1px solid #eeeeee',
         '&:hover': {
@@ -19,7 +18,7 @@ const useStyles = makeStyles({
     },
     star: {
         position: 'relative',
-        right: '12px'
+        right: '12px',
     },
     text: {
         position: 'relative',
@@ -30,7 +29,7 @@ const useStyles = makeStyles({
     },
     date: {
         minWidth: '50px',
-        margin: '0 8px'
+        margin: `0 ${spacing}`
     }
 });
 

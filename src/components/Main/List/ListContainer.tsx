@@ -16,16 +16,9 @@ const ListContainer: FC<IListContainerProps> = props => {
     const leftPortionPageNumber: number = (props.pageNumber - 1) * props.pageSize;
     const rightPortionPageNumber: number = props.pageNumber * props.pageSize;
 
-    let filterTasks = [];
-    switch (props.filter) {
-        case 'not performed': filterTasks = props.tasks.filter(item => !item.isPerformed); break;
-        case 'tags': filterTasks = props.tasks.filter(item => item.isTagged); break;
-        default: filterTasks = props.tasks
-    }
-
     return (
         <List
-            tasks={filterTasks}
+            tasks={props.tasks}
             editModeIndex={editModeIndex}
             setEditModeIndex={setEditModeIndex}
             activeRowIndex={activeRowIndex}

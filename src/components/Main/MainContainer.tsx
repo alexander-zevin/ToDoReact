@@ -1,17 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import {IMessage, IPaginatorChange} from "./MainTypes";
-import {shallowEqual, useDispatch, useSelector} from "react-redux";
-import {RootStateType} from "../../store/store";
+import {useDispatch, useSelector} from "react-redux";
 import Main from "./Main";
 import {getFromLocalStorage, setToLocalStorage} from "../../api/localStorageAPI";
 import {setStateActionCreator} from "../../store/actions";
 import {IState} from "../../store/types";
+import filterSelector from "../../store/selector";
+
 
 const MainContainer = () => {
 
     const dispatch = useDispatch();
 
-    const state: IState = useSelector((state: RootStateType) => state.toDo, shallowEqual);
+    const state: IState = useSelector(filterSelector);
 
     useEffect(() => {
         const stateLocalStorage: IState = getFromLocalStorage();

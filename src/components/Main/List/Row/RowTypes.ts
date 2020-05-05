@@ -1,6 +1,10 @@
 import {Dispatch, SetStateAction} from "react";
 import {IMessage} from "../../MainTypes";
 
+export interface IStylesProps {
+    textDecoration: string
+}
+
 export interface ISetPerformed {
     (id: number): void
 }
