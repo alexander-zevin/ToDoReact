@@ -1,8 +1,12 @@
 import React, {FC} from 'react';
 import {IDeleteTasks, IRowContainerProps, ISetPerformed, ISetTag} from "./RowTypes";
 import Row from "./Row";
-import {deleteTaskActionCreator, setPerformedActionCreator, setTagActionCreator} from "../../../../store/actions";
 import {useDispatch} from "react-redux";
+import {
+    deleteTaskActionCreator,
+    setPerformedActionCreator,
+    setTagActionCreator
+} from "../../../../store/list/listActions";
 
 const RowContainer: FC<IRowContainerProps> = props => {
 

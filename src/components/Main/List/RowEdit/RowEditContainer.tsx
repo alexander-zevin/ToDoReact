@@ -1,8 +1,8 @@
 import React, {FC, useState} from 'react';
 import {IRowEditContainerProps, ISaveTask} from "./RowEditTypes";
 import RowEdit from "./RowEdit";
-import {saveTaskActionCreator} from "../../../../store/actions";
 import {useDispatch} from "react-redux";
+import {saveTaskActionCreator} from "../../../../store/list/listActions";
 
 const RowEditContainer: FC<IRowEditContainerProps> = props => {
 

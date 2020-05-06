@@ -1,4 +1,4 @@
-import {IState} from "../../store/types";
+import {IListState} from "../../store/list/listTypes";
 import React, {Dispatch, SetStateAction} from "react";
 
 export interface IMessage {
@@ -16,5 +16,6 @@ export interface IMainProps {
     pageSize: number
     pageNumber: number
     paginatorChange: IPaginatorChange
-    state: IState
+    listState: IListState
+    initialized: boolean
 }

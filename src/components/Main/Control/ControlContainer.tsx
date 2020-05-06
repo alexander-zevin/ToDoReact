@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import {useDispatch} from "react-redux";
-import {setFilterActionCreator} from "../../../store/actions";
 import {IControlContainerProps, IHandleButtonClick, IHandleClose, IHandleMenuItemClick} from "./ControlTypes";
 import Control from "./Control";
+import {setFilterActionCreator} from "../../../store/list/listActions";
 
 const options: Array<string> = [
     'all',

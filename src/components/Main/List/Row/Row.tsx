@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {Box, Checkbox, IconButton, Divider, Tooltip, Slide} from "@material-ui/core";
+import {Box, Checkbox, IconButton, Divider, Tooltip} from "@material-ui/core";
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {IRowProps} from "./RowTypes";

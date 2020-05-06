@@ -1,6 +1,6 @@
-import {ITask} from "../../../store/types";
 import {Dispatch, SetStateAction} from "react";
 import {IMessage} from "../MainTypes";
+import {ITask} from "../../../store/list/listTypes";
 
 export interface IConvertDate {
     (date: string): string

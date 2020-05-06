@@ -1,13 +1,12 @@
-import {ADD_TASK, DELETE_TASK, SAVE_TASK, SET_FILTER, SET_PERFORMED, SET_STATE, SET_TAG} from "./constants";
-import {IState} from './types'
-import {ActionType} from "./actions";
+import {ADD_TASK, DELETE_TASK, SAVE_TASK, SET_FILTER, SET_PERFORMED, SET_STATE, SET_TAG} from "./listConstants";
+import {ListActionType, IListState} from './listTypes'
 
-const initialState: IState = {
+const initialState: IListState = {
     tasks: [],
-    filter: 'all'
+    filter: 'all',
 };
 
-export const reducer = (state = initialState, action: ActionType): IState => {
+export const listReducer = (state = initialState, action: ListActionType): IListState => {
     switch (action.type) {
         case ADD_TASK: {
             return {

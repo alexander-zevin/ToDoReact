@@ -2,26 +2,27 @@ import React, {useEffect, useState} from 'react';
 import {IMessage, IPaginatorChange} from "./MainTypes";
 import {useDispatch, useSelector} from "react-redux";
 import Main from "./Main";
-import {getFromLocalStorage, setToLocalStorage} from "../../api/localStorageAPI";
-import {setStateActionCreator} from "../../store/actions";
-import {IState} from "../../store/types";
-import filterSelector from "../../store/selector";
-
+import {apiLocalStorage} from "../../api/apiLocalStorage";
+import {IListState} from "../../store/list/listTypes";
+import filterSelector from "../../store/list/listSelectors";
+import {getStateThunkCreator} from "../../store/list/listThunks";
+import {RootStateType} from "../../store/store";
 
 const MainContainer = () => {
 
     const dispatch = useDispatch();
 
-    const state: IState = useSelector(filterSelector);
+    const listState: IListState = useSelector(filterSelector);
+
+    const initialized: boolean = useSelector((state: RootStateType) => state.app.initialized);
 
     useEffect(() => {
-        const stateLocalStorage: IState = getFromLocalStorage();
-        if (stateLocalStorage !== null) dispatch(setStateActionCreator(stateLocalStorage));
-    }, [dispatch]);
+        dispatch(getStateThunkCreator())
+    }, []);
 
     useEffect(() => {
-        setToLocalStorage(state);
-    }, [state]);
+        apiLocalStorage.setState(listState);
+    }, [listState]);
 
     const [openMessage, setOpenMessage] = useState<IMessage>({open: false, message: null});
 
@@ -38,7 +39,8 @@ const MainContainer = () => {
             pageSize={pageSize}
             pageNumber={pageNumber}
             paginatorChange={paginatorChange}
-            state={state}
+            listState={listState}
+            initialized={initialized}
         />
     );
 };

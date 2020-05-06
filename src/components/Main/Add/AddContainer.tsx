@@ -2,7 +2,7 @@ import React, {FC, useState} from 'react';
 import Add from "./Add";
 import {useDispatch} from "react-redux";
 import {IAddContainerProps, IAddTasks, ITextFieldChange} from "./AddTypes";
-import {addTaskActionCreator} from "../../../store/actions";
+import {addTaskActionCreator} from "../../../store/list/listActions";
 
 const AddContainer: FC<IAddContainerProps> = ({tasks}) => {
 
