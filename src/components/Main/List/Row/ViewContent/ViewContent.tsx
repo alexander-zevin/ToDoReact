@@ -19,9 +19,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 function PaperComponent(props: PaperProps) {
 
     return (
-        <Draggable
-            handle="#draggable-dialog-title"
-        >
+        <Draggable handle="#draggable-dialog-title">
             <Paper {...props} />
         </Draggable>
     );

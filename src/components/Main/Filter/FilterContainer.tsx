@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {useDispatch} from "react-redux";
-import {IControlContainerProps, IHandleButtonClick, IHandleClose, IHandleMenuItemClick} from "./ControlTypes";
-import Control from "./Control";
+import {IControlContainerProps, IHandleButtonClick, IHandleClose, IHandleMenuItemClick} from "./FilterTypes";
+import Filter from "./Filter";
 import {setFilterActionCreator} from "../../../store/list/listActions";
 
 const options: Array<string> = [
@@ -10,20 +10,17 @@ const options: Array<string> = [
     'tags',
 ];
 
-const ControlContainer: FC<IControlContainerProps> = props => {
+const FilterContainer: FC<IControlContainerProps> = ({filter}) => {
 
     const dispatch = useDispatch();
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
-    const [selectedIndex, setSelectedIndex] = React.useState<number>(0);
 
     const handleButtonClick: IHandleButtonClick = event => {
         setAnchorEl(event.currentTarget);
     };
 
     const handleMenuItemClick: IHandleMenuItemClick = (event, index) => {
-        setSelectedIndex(index);
         setAnchorEl(null);
         dispatch(setFilterActionCreator(options[index]));
     };
@@ -33,10 +30,9 @@ const ControlContainer: FC<IControlContainerProps> = props => {
     };
 
     return (
-        <Control
-            filter={props.filter}
+        <Filter
+            filter={filter}
             anchorEl={anchorEl}
-            selectedIndex={selectedIndex}
             handleButtonClick={handleButtonClick}
             handleMenuItemClick={handleMenuItemClick}
             handleClose={handleClose}
@@ -45,4 +41,4 @@ const ControlContainer: FC<IControlContainerProps> = props => {
     )
 };
 
-export default ControlContainer;
+export default FilterContainer;

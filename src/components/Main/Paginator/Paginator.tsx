@@ -11,7 +11,7 @@ const Paginator: FC<IPaginatorProps> = props => {
     const pagesCount: number = Math.ceil(props.tasks.length / props.pageSize);
 
     return (
-        <Box className={classes.root}>
+        <Box className={classes.root} position="static">
             <Pagination count={pagesCount} onChange={props.paginatorChange} color="primary"/>
         </Box>
     );

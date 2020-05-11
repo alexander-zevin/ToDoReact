@@ -7,7 +7,7 @@ import {IPreloaderProps} from "./PreloaderTypes";
 const Preloader: FC<IPreloaderProps> = ({initialized}) => {
     const classes = useStyles();
     return (
-        <Backdrop className={classes.backdrop} open={initialized}>
+        <Backdrop className={classes.backdrop} open={!initialized}>
             <CircularProgress color="inherit" />
         </Backdrop>
     );

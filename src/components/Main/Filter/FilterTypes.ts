@@ -18,7 +18,6 @@ export interface IControlContainerProps {
 
 export interface IControlProps extends IControlContainerProps{
     anchorEl: null | HTMLElement
-    selectedIndex: number
     handleMenuItemClick: IHandleMenuItemClick
     handleClose: IHandleClose
     handleButtonClick: IHandleButtonClick

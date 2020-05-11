@@ -12,6 +12,7 @@ export interface IListContainerProps {
     pageNumber: number
     pageSize: number
     filter: string
+    initialized: boolean
 }
 
 export interface IListProps extends IListContainerProps {

@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
     root: {
         borderTop: '1px solid #e0e0e0',
-        flexGrow: 1
+        flexGrow: 1,
+        overflow: 'auto'
     },
     empty: {
         height: '100%',

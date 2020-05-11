@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import Main from "./Main";
 import {apiLocalStorage} from "../../api/apiLocalStorage";
 import {IListState} from "../../store/list/listTypes";
-import filterSelector from "../../store/list/listSelectors";
 import {getStateThunkCreator} from "../../store/list/listThunks";
 import {RootStateType} from "../../store/store";
 
@@ -12,9 +11,9 @@ const MainContainer = () => {
 
     const dispatch = useDispatch();
 
-    const listState: IListState = useSelector(filterSelector);
+    const listState: IListState = useSelector((state: RootStateType): IListState => state.list);
 
-    const initialized: boolean = useSelector((state: RootStateType) => state.app.initialized);
+    const initialized: boolean = useSelector((state: RootStateType): boolean => state.app.initialized);
 
     useEffect(() => {
         dispatch(getStateThunkCreator())

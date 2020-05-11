@@ -9,7 +9,11 @@ const List: FC<IListProps> = props => {
     const classes = useStyles();
     return (
         <Box className={classes.root}>
-            {props.tasks.length === 0 && <Box className={classes.empty}><span>It's empty here...</span></Box>}
+            {
+                props.initialized &&
+                    props.tasks.length === 0 &&
+                        <Box className={classes.empty}><span>It's empty here...</span></Box>
+            }
             {props.tasks.slice(props.leftPortionPageNumber, props.rightPortionPageNumber).map(item =>
                 props.editModeIndex !== item.id ?
                     <RowContainer

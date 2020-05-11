@@ -6,7 +6,7 @@ import Message from "./Message/Message";
 import {IMainProps} from "./MainTypes";
 import Paginator from "./Paginator/Paginator";
 import useStyles from "./MainStyles";
-import ControlContainer from "./Control/ControlContainer";
+import FilterContainer from "./Filter/FilterContainer";
 import Preloader from "../Preloader/Preloader";
 
 const Main: FC<IMainProps> = props => {
@@ -14,13 +14,14 @@ const Main: FC<IMainProps> = props => {
     return (
         <Paper className={classes.root} elevation={3}>
             <AddContainer tasks={props.listState.tasks}/>
-            <ControlContainer filter={props.listState.filter}/>
+            <FilterContainer filter={props.listState.filter}/>
             <ListContainer
                 setOpenMessage={props.setOpenMessage}
                 tasks={props.listState.tasks}
                 pageNumber={props.pageNumber}
                 pageSize={props.pageSize}
                 filter={props.listState.filter}
+                initialized={props.initialized}
             />
             <Message
                 openMessage={props.openMessage}

@@ -2,7 +2,7 @@ import {IAppState, IInitializedSuccessAction} from "./appTypes";
 import {INITIALIZED_SUCCESS} from "./appConstants";
 
 const initialState: IAppState = {
-    initialized: true
+    initialized: false
 };
 
 export const appReducer = (state = initialState, action: IInitializedSuccessAction) => {
