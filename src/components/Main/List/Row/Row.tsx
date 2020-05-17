@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {Box, Checkbox, IconButton, Divider, Tooltip} from "@material-ui/core";
+import {Box, Checkbox, IconButton, Divider, Tooltip, Theme} from "@material-ui/core";
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {IRowProps} from "./RowTypes";
@@ -7,8 +7,11 @@ import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import ViewContent from "./ViewContent/ViewContent";
 import useStyles from "./RowStyles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const Row: FC<IRowProps> = props => {
+
+    const fullScreen: boolean = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm')); // > 600px
 
     const stylesProps = {textDecoration: props.isPerformed ? 'line-through' : 'none'};
     const classes = useStyles(stylesProps);
@@ -16,8 +19,9 @@ const Row: FC<IRowProps> = props => {
     return (
         <div
             className={classes.root}
-            onMouseMove={() => {props.setActiveRowIndex(props.id)}}
-            onMouseLeave={() => {props.setActiveRowIndex(null)}}
+            onClick={() => {fullScreen && props.setActiveRowIndex(props.id)}}
+            onMouseMove={() => {!fullScreen && props.setActiveRowIndex(props.id)}}
+            onMouseLeave={() => {!fullScreen && props.setActiveRowIndex(null)}}
             id='draggable-row'
         >
             <Tooltip title={props.isPerformed ? 'Performed' : 'Not performed'} placement="top">
