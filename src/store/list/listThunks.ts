@@ -10,7 +10,7 @@ export const getStateThunkCreator = () => (dispatch: Dispatch<ISetStateAction | 
     setTimeout(() => {
         if (stateLocalStorage !== null) {
             dispatch(setStateActionCreator(stateLocalStorage));
-            dispatch(initializedSuccessActionCreator(true))
         }
+        dispatch(initializedSuccessActionCreator(true))
     }, 2000);
 };
