@@ -13,6 +13,7 @@ export interface IListContainerProps {
     pageSize: number
     filter: string
     initialized: boolean
+    sortBy: string
 }
 
 export interface IListProps extends IListContainerProps {

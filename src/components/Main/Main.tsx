@@ -6,21 +6,27 @@ import Message from "./Message/Message";
 import {IMainProps} from "./MainTypes";
 import Paginator from "./Paginator/Paginator";
 import useStyles from "./MainStyles";
-import FilterContainer from "./Filter/FilterContainer";
+import FilterContainer from "../Tools/Filter/FilterContainer";
 import Preloader from "../Preloader/Preloader";
+import Tools from "../Tools/Tools";
 
 const Main: FC<IMainProps> = props => {
     const classes = useStyles();
     return (
         <Paper className={classes.root} elevation={3}>
             <AddContainer tasks={props.listState.tasks}/>
-            <FilterContainer filter={props.listState.filter}/>
+            {/*<SortContainer filter={props.listState.filter}/>*/}
+            <Tools
+                filter={props.listState.filter}
+                sortBy={props.listState.sortBy}
+            />
             <ListContainer
                 setOpenMessage={props.setOpenMessage}
                 tasks={props.listState.tasks}
                 pageNumber={props.pageNumber}
                 pageSize={props.pageSize}
                 filter={props.listState.filter}
+                sortBy={props.listState.sortBy}
                 initialized={props.initialized}
             />
             <Message

@@ -1,9 +1,19 @@
-import {ADD_TASK, DELETE_TASK, SAVE_TASK, SET_FILTER, SET_PERFORMED, SET_STATE, SET_TAG} from "./listConstants";
+import {
+    ADD_TASK,
+    DELETE_TASK,
+    SAVE_TASK,
+    SET_FILTER,
+    SET_PERFORMED,
+    SET_SORT,
+    SET_STATE,
+    SET_TAG
+} from "./listConstants";
 import {ListActionType, IListState} from './listTypes'
 
 const initialState: IListState = {
     tasks: [],
     filter: 'all',
+    sortBy: 'date'
 };
 
 export const listReducer = (state = initialState, action: ListActionType): IListState => {
@@ -57,6 +67,11 @@ export const listReducer = (state = initialState, action: ListActionType): IList
         case SET_FILTER: {
             return {
                 ...state, filter: action.option
+            }
+        }
+        case SET_SORT: {
+            return {
+                ...state, sortBy: action.option
             }
         }
         default: return state;

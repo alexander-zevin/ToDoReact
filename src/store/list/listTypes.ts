@@ -1,4 +1,13 @@
-import {ADD_TASK, DELETE_TASK, SAVE_TASK, SET_FILTER, SET_PERFORMED, SET_STATE, SET_TAG} from "./listConstants";
+import {
+    ADD_TASK,
+    DELETE_TASK,
+    SAVE_TASK,
+    SET_FILTER,
+    SET_PERFORMED,
+    SET_SORT,
+    SET_STATE,
+    SET_TAG
+} from "./listConstants";
 
 export interface ITask {
     id: number
@@ -10,6 +19,7 @@ export interface ITask {
 export interface IListState {
     tasks: ITask[]
     filter: string
+    sortBy: string
 }
 
 //actions types:
@@ -52,5 +62,10 @@ export interface ISetFilterAction {
     option: string
 }
 
+export interface ISetSortAction {
+    type: typeof SET_SORT,
+    option: string
+}
+
 export type ListActionType = IAddTaskAction | IDeleteTaskAction | ISetPerformedAction | ISaveTaskAction | ISetStateAction
-    | ISetTagAction | ISetFilterAction
+    | ISetTagAction | ISetFilterAction | ISetSortAction

@@ -12,11 +12,11 @@ export interface IHandleClose {
     (): void
 }
 
-export interface IControlContainerProps {
-    filter: string
+export interface ISortContainerProps {
+    sortBy: string
 }
 
-export interface IControlProps extends IControlContainerProps{
+export interface ISortProps extends ISortContainerProps{
     anchorEl: null | HTMLElement
     handleMenuItemClick: IHandleMenuItemClick
     handleClose: IHandleClose

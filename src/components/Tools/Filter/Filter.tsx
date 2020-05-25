@@ -4,11 +4,11 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import Typography from "@material-ui/core/Typography";
-import {IControlProps} from "./FilterTypes";
+import {IFilterProps} from "./FilterTypes";
 import FilterListIcon from '@material-ui/icons/FilterList';
 import useStyles from "./FilterStyles";
 
-const Filter: FC<IControlProps> = props => {
+const Filter: FC<IFilterProps> = props => {
     const classes = useStyles();
     return (
         <Box className={classes.root}>

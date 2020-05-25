@@ -13,7 +13,9 @@ const Row: FC<IRowProps> = props => {
 
     const fullScreen: boolean = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm')); // > 600px
 
-    const stylesProps = {textDecoration: props.isPerformed ? 'line-through' : 'none'};
+    const stylesProps = {
+        textDecoration: props.isPerformed ? 'line-through' : 'none',
+    };
     const classes = useStyles(stylesProps);
 
     return (

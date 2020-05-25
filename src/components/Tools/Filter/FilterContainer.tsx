@@ -1,6 +1,11 @@
 import React, {FC} from 'react';
 import {useDispatch} from "react-redux";
-import {IControlContainerProps, IHandleButtonClick, IHandleClose, IHandleMenuItemClick} from "./FilterTypes";
+import {
+    IFilterContainerProps,
+    IHandleButtonClick,
+    IHandleClose,
+    IHandleMenuItemClick
+} from "./FilterTypes";
 import Filter from "./Filter";
 import {setFilterActionCreator} from "../../../store/list/listActions";
 
@@ -10,7 +15,7 @@ const options: Array<string> = [
     'tags',
 ];
 
-const FilterContainer: FC<IControlContainerProps> = ({filter}) => {
+const FilterContainer: FC<IFilterContainerProps> = ({filter}) => {
 
     const dispatch = useDispatch();
 

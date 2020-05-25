@@ -1,4 +1,13 @@
-import {ADD_TASK, DELETE_TASK, SAVE_TASK, SET_FILTER, SET_PERFORMED, SET_STATE, SET_TAG} from "./listConstants";
+import {
+    ADD_TASK,
+    DELETE_TASK,
+    SAVE_TASK,
+    SET_FILTER,
+    SET_PERFORMED,
+    SET_SORT,
+    SET_STATE,
+    SET_TAG
+} from "./listConstants";
 import {
     IAddTaskAction,
     IDeleteTaskAction,
@@ -24,5 +33,7 @@ export const setStateActionCreator = (state: IListState): ISetStateAction => ({t
 export const setTagActionCreator = (id: number): ISetTagAction => ({type: SET_TAG, id});
 
 export const setFilterActionCreator = (option: string): ISetFilterAction => ({type: SET_FILTER, option});
+
+export const setSortActionCreator = (option: string) => ({type: SET_SORT, option})
 
 

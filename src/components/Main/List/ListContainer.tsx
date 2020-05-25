@@ -1,6 +1,7 @@
 import React, {FC, useState} from 'react';
 import List from "./List";
 import {IConvertDate, IListContainerProps} from "./ListTypes";
+import {ITask} from "../../../store/list/listTypes";
 
 const convertDate: IConvertDate = date => {
     const months = ["Jan.","Feb.","Mar.","Apr.","May","June","July","Aug.","Sept.","Oct.","Nov.","Dec."];
@@ -18,9 +19,33 @@ const ListContainer: FC<IListContainerProps> = props => {
 
     let filterTasks = [];
     switch (props.filter) {
-        case 'not performed':filterTasks = props.tasks.filter(item => !item.isPerformed); break;
+        case 'not performed': filterTasks = props.tasks.filter(item => !item.isPerformed); break;
         case 'tags': filterTasks = props.tasks.filter(item => item.isTagged); break;
         default: filterTasks = props.tasks
+    }
+
+    switch (props.sortBy) {
+        case 'not performed': filterTasks.sort(
+            (a, b) => {
+                if (a.isPerformed > b.isPerformed) return 1
+                if (a.isPerformed < b.isPerformed) return -1
+                return 0
+            }
+        ); break;
+        case 'tags': filterTasks.sort(
+            (a, b) => {
+                if (a.isTagged < b.isTagged) return 1
+                if (a.isTagged > b.isTagged) return -1
+                return 0
+            }
+        ); break;
+        case 'date': filterTasks.sort(
+            (a, b) => {
+                if (a.date > b.date) return 1
+                if (a.date < b.date) return -1
+                return 0
+            }
+        )
     }
 
     return (
@@ -36,6 +61,7 @@ const ListContainer: FC<IListContainerProps> = props => {
             leftPortionPageNumber={leftPortionPageNumber}
             rightPortionPageNumber={rightPortionPageNumber}
             filter={props.filter}
+            sortBy={props.sortBy}
             convertDate={convertDate}
             initialized={props.initialized}
         />
