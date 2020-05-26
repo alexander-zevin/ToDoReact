@@ -1,4 +1,4 @@
-import {IListState} from "../../store/list/listTypes";
+import {IListState} from "../../store/list/types";
 import React, {Dispatch, SetStateAction} from "react";
 
 export interface IMessage {

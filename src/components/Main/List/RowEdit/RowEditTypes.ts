@@ -1,5 +1,6 @@
 import {Dispatch, SetStateAction} from "react";
 import {IMessage} from "../../MainTypes";
+import {ISetActiveRow} from "../ListTypes";
 
 export interface ISaveTask {
     (id: number, text: string): void
@@ -10,7 +11,7 @@ export interface IRowEditContainerProps {
     text: string
     setEditModeIndex: Dispatch<SetStateAction<number | null>>
     setOpenMessage: Dispatch<SetStateAction<IMessage>>
-    setActiveRowIndex: Dispatch<SetStateAction<number | null>>
+    setActiveRow: ISetActiveRow
 }
 
 export interface IRowEditProps extends IRowEditContainerProps{

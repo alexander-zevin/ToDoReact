@@ -7,8 +7,8 @@ import {
     SET_SORT,
     SET_STATE,
     SET_TAG
-} from "./listConstants";
-import {ListActionType, IListState} from './listTypes'
+} from "./constants";
+import {ListActionType, IListState} from './types'
 
 const initialState: IListState = {
     tasks: [],
@@ -16,7 +16,7 @@ const initialState: IListState = {
     sortBy: 'date'
 };
 
-export const listReducer = (state = initialState, action: ListActionType): IListState => {
+export const reducer = (state = initialState, action: ListActionType): IListState => {
     switch (action.type) {
         case ADD_TASK: {
             return {

@@ -11,7 +11,7 @@ function TransitionRight(props: TransitionProps) {
     return <Slide {...props} direction="right" />;
 }
 
-const Message: FC<IMessageProps> = props => {
+export const Message: FC<IMessageProps> = props => {
     return (
         <Hidden mdDown>
             <Snackbar
@@ -32,5 +32,3 @@ const Message: FC<IMessageProps> = props => {
         </Hidden>
     );
 };
-
-export default Message;

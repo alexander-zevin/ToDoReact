@@ -4,17 +4,17 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import Typography from "@material-ui/core/Typography";
-import {ISortProps} from "./SortTypes";
-import SortIcon from '@material-ui/icons/Sort';
-import useStyles from "./SortStyles";
+import {IFilterProps} from "./FilterTypes";
+import FilterListIcon from '@material-ui/icons/FilterList';
+import useStyles from "./FilterStyles";
 
-const Sort: FC<ISortProps> = props => {
+export const Filter: FC<IFilterProps> = props => {
     const classes = useStyles();
     return (
         <Box className={classes.root}>
-            <Button onClick={props.handleButtonClick} startIcon={<SortIcon/>}>
+            <Button onClick={props.handleButtonClick} startIcon={<FilterListIcon/>}>
                 <Typography variant="body2">
-                    Sort by: {props.sortBy}
+                    Filter by: {props.filter}
                 </Typography>
             </Button>
             <Menu
@@ -26,7 +26,7 @@ const Sort: FC<ISortProps> = props => {
                 {props.options.map((option, index) =>
                     <MenuItem
                         key={option}
-                        selected={index === props.options.indexOf(props.sortBy)}
+                        selected={index === props.options.indexOf(props.filter)}
                         onClick={(event) => props.handleMenuItemClick(event, index)}
                     >
                         {option}
@@ -36,5 +36,3 @@ const Sort: FC<ISortProps> = props => {
         </Box>
     );
 };
-
-export default Sort;

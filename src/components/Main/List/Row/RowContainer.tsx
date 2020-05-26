@@ -1,14 +1,14 @@
 import React, {FC} from 'react';
 import {IDeleteTasks, IRowContainerProps, ISetPerformed, ISetTag} from "./RowTypes";
-import Row from "./Row";
+import {Row} from "./Row";
 import {useDispatch} from "react-redux";
 import {
     deleteTaskActionCreator,
     setPerformedActionCreator,
     setTagActionCreator
-} from "../../../../store/list/listActions";
+} from "../../../../store/list/actions";
 
-const RowContainer: FC<IRowContainerProps> = props => {
+export const RowContainer: FC<IRowContainerProps> = props => {
 
     const dispatch = useDispatch();
 
@@ -34,5 +34,3 @@ const RowContainer: FC<IRowContainerProps> = props => {
         />
     );
 };
-
-export default RowContainer;

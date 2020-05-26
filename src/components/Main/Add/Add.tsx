@@ -3,7 +3,7 @@ import {TextField, Button, Box} from "@material-ui/core";
 import {IAddProps} from "./AddTypes";
 import useStyles from "./AddStyles";
 
-const Add: FC<IAddProps> = ({textFieldValue, textFieldChange, addTask}) => {
+export const Add: FC<IAddProps> = ({textFieldValue, textFieldChange, addTask}) => {
     const classes = useStyles();
     return (
         <Box className={classes.root}>
@@ -27,5 +27,3 @@ const Add: FC<IAddProps> = ({textFieldValue, textFieldChange, addTask}) => {
         </Box>
     );
 };
-
-export default Add;

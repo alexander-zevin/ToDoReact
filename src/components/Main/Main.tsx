@@ -1,21 +1,19 @@
 import React, {FC} from 'react';
 import Paper from '@material-ui/core/Paper';
-import AddContainer from "./Add/AddContainer";
-import ListContainer from "./List/ListContainer";
-import Message from "./Message/Message";
+import {AddContainer} from "./Add/AddContainer";
+import {ListContainer} from "./List/ListContainer";
+import {Message} from "./Message/Message";
 import {IMainProps} from "./MainTypes";
-import Paginator from "./Paginator/Paginator";
+import {Paginator} from "./Paginator/Paginator";
 import useStyles from "./MainStyles";
-import FilterContainer from "../Tools/Filter/FilterContainer";
-import Preloader from "../Preloader/Preloader";
-import Tools from "../Tools/Tools";
+import {Preloader} from "./Preloader/Preloader";
+import {Tools} from "./Tools/Tools";
 
-const Main: FC<IMainProps> = props => {
+export const Main: FC<IMainProps> = props => {
     const classes = useStyles();
     return (
         <Paper className={classes.root} elevation={3}>
             <AddContainer tasks={props.listState.tasks}/>
-            {/*<SortContainer filter={props.listState.filter}/>*/}
             <Tools
                 filter={props.listState.filter}
                 sortBy={props.listState.sortBy}
@@ -42,5 +40,3 @@ const Main: FC<IMainProps> = props => {
         </Paper>
     );
 };
-
-export default Main;

@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {IMessage, IPaginatorChange} from "./MainTypes";
 import {useDispatch, useSelector} from "react-redux";
-import Main from "./Main";
+import {Main} from "./Main";
 import {apiLocalStorage} from "../../api/apiLocalStorage";
-import {IListState} from "../../store/list/listTypes";
-import {getStateThunkCreator} from "../../store/list/listThunks";
+import {IListState} from "../../store/list/types";
+import {getStateThunkCreator} from "../../store/list/thunks";
 import {RootStateType} from "../../store/store";
 
-const MainContainer = () => {
+export const MainContainer = () => {
 
     const dispatch = useDispatch();
 
@@ -43,5 +43,3 @@ const MainContainer = () => {
         />
     );
 };
-
-export default MainContainer;

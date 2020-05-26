@@ -37,7 +37,7 @@ const ViewContent: FC<IViewContentProps> = props => {
 
     const handleClose = () => {
         setOpen(false);
-        props.setActiveRowIndex(null);
+        props.setActiveRow(null);
     };
 
     const Transition = React.forwardRef(function Transition(

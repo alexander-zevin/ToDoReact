@@ -4,7 +4,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import useStyles from "./PreloaderStyles";
 import {IPreloaderProps} from "./PreloaderTypes";
 
-const Preloader: FC<IPreloaderProps> = ({initialized}) => {
+export const Preloader: FC<IPreloaderProps> = ({initialized}) => {
     const classes = useStyles();
     return (
         <Backdrop className={classes.backdrop} open={!initialized}>
@@ -12,6 +12,4 @@ const Preloader: FC<IPreloaderProps> = ({initialized}) => {
         </Backdrop>
     );
 };
-
-export default Preloader;
 

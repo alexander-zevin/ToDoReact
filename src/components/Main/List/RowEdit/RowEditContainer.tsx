@@ -1,10 +1,10 @@
 import React, {FC, useState} from 'react';
 import {IRowEditContainerProps, ISaveTask} from "./RowEditTypes";
-import RowEdit from "./RowEdit";
+import {RowEdit} from "./RowEdit";
 import {useDispatch} from "react-redux";
-import {saveTaskActionCreator} from "../../../../store/list/listActions";
+import {saveTaskActionCreator} from "../../../../store/list/actions";
 
-const RowEditContainer: FC<IRowEditContainerProps> = props => {
+export const RowEditContainer: FC<IRowEditContainerProps> = props => {
 
     const dispatch = useDispatch();
 
@@ -13,7 +13,7 @@ const RowEditContainer: FC<IRowEditContainerProps> = props => {
     const saveTask: ISaveTask = (id, text) => {
         dispatch(saveTaskActionCreator(id, text));
         props.setEditModeIndex(null);
-        props.setActiveRowIndex(null);
+        props.setActiveRow(null);
         props.setOpenMessage({open: true, message: 'Saving was successful!'});
     };
 
@@ -26,5 +26,3 @@ const RowEditContainer: FC<IRowEditContainerProps> = props => {
         />
     );
 };
-
-export default RowEditContainer;

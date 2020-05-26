@@ -4,7 +4,7 @@ import {IPaginatorProps} from "./PaginatorTypes";
 import {Box} from "@material-ui/core";
 import useStyles from "./PaginatorStyles";
 
-const Paginator: FC<IPaginatorProps> = props => {
+export const Paginator: FC<IPaginatorProps> = props => {
 
     const classes = useStyles();
 
@@ -16,5 +16,3 @@ const Paginator: FC<IPaginatorProps> = props => {
         </Box>
     );
 };
-
-export default Paginator;

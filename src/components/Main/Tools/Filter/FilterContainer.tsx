@@ -6,8 +6,8 @@ import {
     IHandleClose,
     IHandleMenuItemClick
 } from "./FilterTypes";
-import Filter from "./Filter";
-import {setFilterActionCreator} from "../../../store/list/listActions";
+import {Filter} from "./Filter";
+import {setFilterActionCreator} from "../../../../store/list/actions";
 
 const options: Array<string> = [
     'all',
@@ -15,7 +15,7 @@ const options: Array<string> = [
     'tags',
 ];
 
-const FilterContainer: FC<IFilterContainerProps> = ({filter}) => {
+export const FilterContainer: FC<IFilterContainerProps> = ({filter}) => {
 
     const dispatch = useDispatch();
 
@@ -45,5 +45,3 @@ const FilterContainer: FC<IFilterContainerProps> = ({filter}) => {
         />
     )
 };
-
-export default FilterContainer;

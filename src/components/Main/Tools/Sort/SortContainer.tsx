@@ -3,10 +3,11 @@ import {useDispatch} from "react-redux";
 import {
     IHandleButtonClick,
     IHandleClose,
-    IHandleMenuItemClick, ISortContainerProps
+    IHandleMenuItemClick,
+    ISortContainerProps
 } from "./SortTypes";
-import Sort from "./Sort";
-import {setSortActionCreator} from "../../../store/list/listActions";
+import {Sort} from "./Sort";
+import {setSortActionCreator} from "../../../../store/list/actions";
 
 const options: Array<string> = [
     'date',
@@ -14,7 +15,7 @@ const options: Array<string> = [
     'tags',
 ];
 
-const SortContainer: FC<ISortContainerProps> = ({sortBy}) => {
+export const SortContainer: FC<ISortContainerProps> = ({sortBy}) => {
 
     const dispatch = useDispatch();
 
@@ -44,5 +45,3 @@ const SortContainer: FC<ISortContainerProps> = ({sortBy}) => {
         />
     )
 };
-
-export default SortContainer;

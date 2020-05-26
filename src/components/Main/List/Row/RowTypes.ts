@@ -1,5 +1,6 @@
 import {Dispatch, SetStateAction} from "react";
 import {IMessage} from "../../MainTypes";
+import {ISetActiveRow} from "../ListTypes";
 
 export interface IStylesProps {
     textDecoration: string
@@ -20,7 +21,7 @@ export interface IRowContainerProps {
     editModeIndex: null | number
     setEditModeIndex: Dispatch<SetStateAction<number | null>>
     activeRowIndex: number | null
-    setActiveRowIndex: Dispatch<SetStateAction<number | null>>
+    setActiveRow: ISetActiveRow
     setOpenMessage: Dispatch<SetStateAction<IMessage>>
     isTagged: boolean
     date: string

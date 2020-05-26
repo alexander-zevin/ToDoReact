@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {Box, Checkbox, IconButton, Divider, Tooltip, Theme} from "@material-ui/core";
+import {Box, Checkbox, IconButton, Divider, Tooltip} from "@material-ui/core";
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {IRowProps} from "./RowTypes";
@@ -7,11 +7,13 @@ import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import ViewContent from "./ViewContent/ViewContent";
 import useStyles from "./RowStyles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+// import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useMediaQuery } from 'react-responsive'
 
-const Row: FC<IRowProps> = props => {
+export const Row: FC<IRowProps> = props => {
 
-    const fullScreen: boolean = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm')); // > 600px
+    // const isMobile: boolean = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm')); // > 600px
+    const isMobile = useMediaQuery({ maxWidth: 600 })
 
     const stylesProps = {
         textDecoration: props.isPerformed ? 'line-through' : 'none',
@@ -21,9 +23,9 @@ const Row: FC<IRowProps> = props => {
     return (
         <div
             className={classes.root}
-            onClick={() => {fullScreen && props.setActiveRowIndex(props.id)}}
-            onMouseMove={() => {!fullScreen && props.setActiveRowIndex(props.id)}}
-            onMouseLeave={() => {!fullScreen && props.setActiveRowIndex(null)}}
+            onTouchStart={() => {isMobile && props.setActiveRow(props.id)}}
+            onMouseMove={() => {!isMobile && props.setActiveRow(props.id)}}
+            onMouseLeave={() => {!isMobile && props.setActiveRow(null)}}
             id='draggable-row'
         >
             <Tooltip title={props.isPerformed ? 'Performed' : 'Not performed'} placement="top">
@@ -48,7 +50,7 @@ const Row: FC<IRowProps> = props => {
                         </IconButton>
                     </Tooltip>
                     <Divider orientation="vertical" flexItem/>
-                    <ViewContent text={props.text} setActiveRowIndex={props.setActiveRowIndex}/>
+                    <ViewContent text={props.text} setActiveRow={props.setActiveRow}/>
                     <Divider orientation="vertical" flexItem/>
                     <Tooltip title="Delete" placement="top">
                         <IconButton onClick={() => {props.deleteTasks(props.id)}}>
@@ -62,5 +64,3 @@ const Row: FC<IRowProps> = props => {
         </div>
     );
 };
-
-export default Row;

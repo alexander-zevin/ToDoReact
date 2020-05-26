@@ -1,4 +1,4 @@
-import {ITask} from "../../../store/list/listTypes";
+import {ITask} from "../../../store/list/types";
 
 export interface ITextFieldChange {
     (value: string): void

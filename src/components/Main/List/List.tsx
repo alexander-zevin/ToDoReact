@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
 import {Box} from "@material-ui/core";
 import {IListProps} from "./ListTypes";
-import RowEditContainer from "./RowEdit/RowEditContainer";
-import RowContainer from "./Row/RowContainer";
+import {RowEditContainer} from "./RowEdit/RowEditContainer";
+import {RowContainer} from "./Row/RowContainer";
 import useStyles from "./ListStyles";
 
-const List: FC<IListProps> = props => {
+export const List: FC<IListProps> = props => {
     const classes = useStyles();
     return (
         <Box className={classes.root}>
@@ -23,7 +23,7 @@ const List: FC<IListProps> = props => {
                         editModeIndex={props.editModeIndex}
                         setEditModeIndex={props.setEditModeIndex}
                         activeRowIndex={props.activeRowIndex}
-                        setActiveRowIndex={props.setActiveRowIndex}
+                        setActiveRow={props.setActiveRow}
                         setOpenMessage={props.setOpenMessage}
                         isTagged={item.isTagged}
                         date={props.convertDate(item.date)}
@@ -36,11 +36,9 @@ const List: FC<IListProps> = props => {
                         setEditModeIndex={props.setEditModeIndex}
                         setOpenMessage={props.setOpenMessage}
                         key={item.id}
-                        setActiveRowIndex={props.setActiveRowIndex}
+                        setActiveRow={props.setActiveRow}
                     />
             )}
         </Box>
     );
 };
-
-export default List;

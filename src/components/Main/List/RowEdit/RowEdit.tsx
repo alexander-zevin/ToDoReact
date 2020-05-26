@@ -5,7 +5,7 @@ import CancelIcon from "@material-ui/icons/Cancel";
 import {IRowEditProps} from "./RowEditTypes";
 import useStyles from "./RowEditStyles";
 
-const RowEdit: FC<IRowEditProps> = props => {
+export const RowEdit: FC<IRowEditProps> = props => {
     const classes = useStyles();
     return (
         <Box className={classes.root}>
@@ -33,5 +33,3 @@ const RowEdit: FC<IRowEditProps> = props => {
         </Box>
     );
 };
-
-export default RowEdit;

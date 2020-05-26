@@ -1,10 +1,10 @@
 import React, {FC, useState} from 'react';
-import Add from "./Add";
+import {Add} from "./Add";
 import {useDispatch} from "react-redux";
 import {IAddContainerProps, IAddTasks, ITextFieldChange} from "./AddTypes";
-import {addTaskActionCreator} from "../../../store/list/listActions";
+import {addTaskActionCreator} from "../../../store/list/actions";
 
-const AddContainer: FC<IAddContainerProps> = ({tasks}) => {
+export const AddContainer: FC<IAddContainerProps> = ({tasks}) => {
 
     const dispatch = useDispatch();
 
@@ -39,5 +39,3 @@ const AddContainer: FC<IAddContainerProps> = ({tasks}) => {
         />
     )
 };
-
-export default AddContainer;

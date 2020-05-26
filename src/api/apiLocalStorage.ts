@@ -1,4 +1,4 @@
-import {IListState} from "../store/list/listTypes";
+import {IListState} from "../store/list/types";
 
 export const apiLocalStorage = {
     setState: (state: IListState) => {

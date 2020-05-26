@@ -1,6 +1,6 @@
-import {Dispatch, SetStateAction} from "react";
+import {ISetActiveRow} from "../../ListTypes";
 
 export interface IViewContentProps {
     text: string
-    setActiveRowIndex: Dispatch<SetStateAction<number | null>>
+    setActiveRow: ISetActiveRow
 }

@@ -7,7 +7,7 @@ import {
     SET_SORT,
     SET_STATE,
     SET_TAG
-} from "./listConstants";
+} from "./constants";
 
 export interface ITask {
     id: number

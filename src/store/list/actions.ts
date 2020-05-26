@@ -7,7 +7,7 @@ import {
     SET_SORT,
     SET_STATE,
     SET_TAG
-} from "./listConstants";
+} from "./constants";
 import {
     IAddTaskAction,
     IDeleteTaskAction,
@@ -17,7 +17,7 @@ import {
     ISetPerformedAction,
     ISetStateAction,
     ISetTagAction
-} from "./listTypes";
+} from "./types";
 
 export const addTaskActionCreator = (id: number, text: string, date: string): IAddTaskAction =>
     ({type: ADD_TASK, id, text, date});
