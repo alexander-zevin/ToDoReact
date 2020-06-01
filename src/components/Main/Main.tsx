@@ -5,7 +5,7 @@ import {ListContainer} from "./List/ListContainer";
 import {Message} from "./Message/Message";
 import {IMainProps} from "./MainTypes";
 import {Paginator} from "./Paginator/Paginator";
-import useStyles from "./MainStyles";
+import {useStyles} from "./MainStyles";
 import {Preloader} from "./Preloader/Preloader";
 import {Tools} from "./Tools/Tools";
 

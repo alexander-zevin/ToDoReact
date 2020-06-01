@@ -6,14 +6,14 @@ import {IRowProps} from "./RowTypes";
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import ViewContent from "./ViewContent/ViewContent";
-import useStyles from "./RowStyles";
+import {useStyles} from "./RowStyles";
 // import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useMediaQuery } from 'react-responsive'
 
 export const Row: FC<IRowProps> = props => {
 
     // const isMobile: boolean = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm')); // > 600px
-    const isMobile = useMediaQuery({ maxWidth: 600 })
+    const isMobile: boolean = useMediaQuery({ maxWidth: 600 })
 
     const stylesProps = {
         textDecoration: props.isPerformed ? 'line-through' : 'none',

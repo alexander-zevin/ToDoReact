@@ -3,7 +3,7 @@ import {IStylesProps} from "./RowTypes";
 
 const spacing = '8px';
 
-const useStyles = makeStyles({
+export const useStyles = makeStyles({
     root: {
         display: 'flex',
         alignItems: 'center',
@@ -32,5 +32,3 @@ const useStyles = makeStyles({
         margin: `0 ${spacing}`
     }
 });
-
-export default useStyles;

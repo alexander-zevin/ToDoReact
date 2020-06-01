@@ -70,5 +70,3 @@ export const ListContainer: FC<IListContainerProps> = props => {
         />
     );
 };
-
-export default ListContainer;

@@ -1,10 +1,8 @@
 import {IAppState, IInitializedSuccessAction} from "./types";
 import {INITIALIZED_SUCCESS} from "./constants";
-import {useMediaQuery} from "react-responsive";
 
 const initialState: IAppState = {
-    initialized: false,
-    isMobile: useMediaQuery({ maxWidth: 600 })
+    initialized: false
 };
 
 export const reducer = (state = initialState, action: IInitializedSuccessAction) => {
