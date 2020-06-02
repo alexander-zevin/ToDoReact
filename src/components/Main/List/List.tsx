@@ -14,7 +14,7 @@ export const List: FC<IListProps> = props => {
                     props.tasks.length === 0 &&
                         <Box className={classes.empty}><span>It's empty here...</span></Box>
             }
-            {props.tasks.slice(props.leftPortionPageNumber, props.rightPortionPageNumber).map(item =>
+            {props.tasks.slice(props.leftPortionPageNumber, props.rightPortionPageNumber).map((item: any, index: number) =>
                 props.editModeIndex !== item.id ?
                     <RowContainer
                         id={item.id}
